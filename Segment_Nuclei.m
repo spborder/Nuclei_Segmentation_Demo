@@ -42,7 +42,7 @@ sgtitle('Output of Color Deconvolution')
 % We can use the Hematoxylin channel to extract nuclei. This command
 % thresholds the image by a value that is the result of a modified Otsu's
 % threshold.
-nuclei_mask = imbinarize(imcomplement(h_stain),1.75*graythresh(imcomplement(h_stain)));
+nuclei_mask = imbinarize(adapthisteq(imcomplement(h_stain)),2.3*graythresh(imcomplement(h_stain)));
 
 % Showing results
 figure, imshow(nuclei_mask), axis image, title('Initial Nuclei Mask')
